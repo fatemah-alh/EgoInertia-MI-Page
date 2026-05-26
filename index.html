@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EgoInertia-MI | Multimodal Egocentric Video and IMU Benchmark</title>
+  <meta name="description" content="EgoInertia-MI: A multimodal egocentric video and inertial dataset for motor impairment analysis." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#overview">Skip to content</a>
+
+  <header class="topbar" id="top">
+    <div class="container nav-shell">
+      <a class="brand" href="#top">EgoInertia-MI</a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#overview">Overview</a>
+        <a href="#modalities">Modalities</a>
+        <a href="#organization">Organization</a>
+        <a href="#tasks">Tasks</a>
+        <a href="#results">Results</a>
+        <a href="#download">Download</a>
+        <a href="#citation">Citation</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero section reveal" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="kicker">Research Benchmark</p>
+          <h1>EgoInertia-MI</h1>
+          <p class="subtitle">A Multimodal Egocentric Video and Inertial Dataset for Motor Impairment Analysis</p>
+          <p class="tagline">Benchmarking first-person vision and wearable sensing for movement impairment understanding.</p>
+          <div class="button-row">
+            <a class="btn btn-primary" href="#" aria-label="Paper link placeholder">Paper</a>
+            <a class="btn btn-secondary" href="#download" aria-label="Dataset link">Dataset</a>
+            <a class="btn btn-secondary" href="#" aria-label="Code link placeholder">Code</a>
+            <a class="btn btn-secondary" href="#citation" aria-label="BibTeX section">BibTeX</a>
+          </div>
+        </div>
+        <figure class="hero-figure figure-card">
+          <img src="assets/img/teaser.png" alt="Teaser figure placeholder for EgoInertia-MI" />
+          <figcaption>Teaser figure placeholder: synchronized egocentric perception + wearable IMU benchmark pipeline.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section reveal" id="overview">
+      <div class="container narrow">
+        <h2>Overview</h2>
+        <p>
+          EgoInertia-MI provides synchronized egocentric RGB video and wearable IMU streams for movement analysis and
+          motor impairment severity estimation. The benchmark is designed for multimodal learning under controlled,
+          reproducible protocols and includes standardized train/validation/test partitions.
+        </p>
+        <p>
+          The dataset emphasizes simulated impairment levels, wearable sensing, privacy-aware first-person vision, and
+          practical multimodal evaluation. It does not replace clinical datasets collected from real patients; instead,
+          it offers a scalable and accessible benchmark for studying multimodal movement analysis in controlled settings.
+        </p>
+      </div>
+    </section>
+
+    <section class="section section-soft reveal" id="motivation">
+      <div class="container narrow">
+        <h2>Motivation</h2>
+        <p>
+          Traditional clinical assessments are often intermittent and subjective. Existing vision-based approaches rely
+          heavily on third-person cameras in controlled environments, frequently involving full-body or facial recordings.
+          These conditions can introduce privacy concerns, reduce ecological validity, and complicate real-world deployment.
+        </p>
+        <p>
+          Egocentric sensing enables naturally privacy-aware observations while capturing self-motion dynamics that are
+          directly relevant to motor analysis. EgoInertia-MI investigates whether egocentric video encodes meaningful cues
+          for impairment analysis and whether fusion with synchronized IMU signals improves performance.
+        </p>
+      </div>
+    </section>
+
+    <section class="section reveal" id="modalities">
+      <div class="container">
+        <h2>Dataset Modalities</h2>
+        <div class="grid two-up">
+          <article class="card">
+            <h3>Egocentric Video</h3>
+            <ul>
+              <li>Wearable first-person RGB camera</li>
+              <li>Approximately 150 RGB frames per clip</li>
+              <li>MP4 / H.264 encoding</li>
+              <li>720p resolution (1280x720)</li>
+              <li>Temporally sampled for video transformers</li>
+            </ul>
+            <figure class="figure-card compact">
+              <img src="assets/img/frames.png" alt="Sample egocentric frames placeholder" />
+              <figcaption>Sample egocentric frames placeholder.</figcaption>
+            </figure>
+          </article>
+          <article class="card">
+            <h3>IMU Signals</h3>
+            <ul>
+              <li>Synchronized wearable inertial streams</li>
+              <li>Tri-axial acceleration + gyroscope</li>
+              <li>Wrist sensor</li>
+              <li>Leg sensor</li>
+              <li>Chest sensor, aligned with video clips</li>
+            </ul>
+            <figure class="figure-card compact">
+              <img src="assets/img/imu_signal.png" alt="IMU signal visualization placeholder" />
+              <figcaption>IMU signal visualization placeholder.</figcaption>
+            </figure>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft reveal" id="organization">
+      <div class="container">
+        <h2>Dataset Organization</h2>
+        <p>Each video clip has a corresponding aligned IMU file with the same identifier.</p>
+
+        <div class="grid two-up code-grid">
+          <article class="card code-card">
+            <h3>Video Folder</h3>
+            <pre class="tree-block"><code>EgoInertia-MI-video/
+│
+└── P0001/
+    └── video/
+        └── P0001_S1/
+            ├── P0001_S1_V01.MP4
+            ├── P0001_S1_V02.MP4
+            └── ...</code></pre>
+          </article>
+
+          <article class="card code-card">
+            <h3>IMU Folder</h3>
+            <pre class="tree-block"><code>EgoInertia-MI-IMU/
+│
+└── P0001/
+    └── aligned_IMU/
+        └── P0001_S1/
+            ├── P0001_S1_V01_aligned.csv
+            ├── P0001_S1_V02_aligned.csv
+            └── ...
+
+├── LICENSE
+├── README.md
+└── benchmark_protocols.pdf</code></pre>
+          </article>
+        </div>
+
+        <article class="card">
+          <h3>Identifier Mapping</h3>
+          <p><strong>Video:</strong> EgoInertia-MI-video/P0001/video/P0001_S1/P0001_S1_V01.MP4</p>
+          <p><strong>Aligned IMU:</strong> EgoInertia-MI-IMU/P0001/aligned_IMU/P0001_S1/P0001_S1_V01_aligned.csv</p>
+          <p><strong>Identifier format:</strong> <code>PXXXX_SY_VZZ</code></p>
+          <ul>
+            <li>PXXXX = participant ID</li>
+            <li>SY = session ID</li>
+            <li>VZZ = clip ID</li>
+          </ul>
+          <p>Standardized train/validation/test splits, metadata files, and benchmark protocols are provided.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section reveal" id="imu-format">
+      <div class="container">
+        <h2>IMU File Format</h2>
+        <p>Each aligned IMU CSV contains synchronized wearable inertial signals with 19 columns:</p>
+        <article class="card code-card">
+          <pre class="csv-block"><code>rel_time_s,
+w_acc_x, w_acc_y, w_acc_z,
+w_gyro_x, w_gyro_y, w_gyro_z,
+l_acc_x, l_acc_y, l_acc_z,
+l_gyro_x, l_gyro_y, l_gyro_z,
+c_acc_x, c_acc_y, c_acc_z,
+c_gyro_x, c_gyro_y, c_gyro_z</code></pre>
+        </article>
+        <div class="grid three-up">
+          <article class="mini-card"><h3>Prefixes</h3><p>w = wrist, l = leg, c = chest.</p></article>
+          <article class="mini-card"><h3>Signal Types</h3><p>acc = tri-axial acceleration, gyro = tri-axial angular velocity.</p></article>
+          <article class="mini-card"><h3>Time Axis</h3><p>rel_time_s is the relative timestamp in seconds.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft reveal" id="annotation">
+      <div class="container">
+        <h2>Annotation File</h2>
+        <p>The annotation CSV is semicolon-separated and captures clip metadata, labels, and notes.</p>
+
+        <figure class="figure-card wide">
+          <img src="assets/img/frames.png" alt="Action examples placeholder" />
+          <figcaption>Action examples placeholder.</figcaption>
+        </figure>
+
+        <article class="card code-card">
+          <h3>Annotation Columns</h3>
+          <pre class="csv-block"><code>VidID;Path;HandInVideo;SensorsSideWristLeg;Action;Severity;ClassID;duration_s;notes</code></pre>
+          <ul>
+            <li>VidID: unique clip ID (example: P0001_S1_V01)</li>
+            <li>Path: relative video file path</li>
+            <li>HandInVideo: visible hand (R/L)</li>
+            <li>SensorsSideWristLeg: wearable side for wrist/leg (example: RR)</li>
+            <li>Action: activity label (example: FingerTapping)</li>
+            <li>Severity: simulated impairment level</li>
+            <li>ClassID: numeric class index</li>
+            <li>duration_s: clip duration in seconds</li>
+            <li>notes: optional comments</li>
+          </ul>
+        </article>
+
+        <article class="card code-card">
+          <h3>Example Rows</h3>
+          <pre class="csv-block"><code>VidID;Path;HandInVideo;SensorsSideWristLeg;Action;Severity;ClassID;duration_s;notes
+P0001_S1_V01;P0001/P0001_S1/videos/P0001_S1_V01.MP4;R;RR;FingerTapping;0;0;17.665044;
+P0001_S1_V02;P0001/P0001_S1/videos/P0001_S1_V02.MP4;L;RR;FingerTapping;0;0;24.423772;</code></pre>
+        </article>
+      </div>
+    </section>
+
+    <section class="section reveal" id="tasks">
+      <div class="container">
+        <h2>Benchmark Tasks</h2>
+        <div class="grid two-up">
+          <article class="card task-card">
+            <p class="task-id">Task 1</p>
+            <h3>Action Recognition</h3>
+            <p>Predict the performed activity from video-only, IMU-only, and multimodal fusion inputs.</p>
+          </article>
+          <article class="card task-card">
+            <p class="task-id">Task 2</p>
+            <h3>Motor Impairment Severity Estimation</h3>
+            <p>Estimate impairment severity levels from multimodal movement dynamics.</p>
+          </article>
+        </div>
+        <p class="note">Protocols include unimodal baselines, multimodal fusion baselines, and standardized evaluation settings.</p>
+      </div>
+    </section>
+
+    <section class="section section-soft reveal" id="statistics">
+      <div class="container">
+        <h2>Dataset Statistics</h2>
+        <div class="grid three-up stat-grid">
+          <article class="mini-card"><h3>Participants</h3><p>TBA</p></article>
+          <article class="mini-card"><h3>Sessions</h3><p>TBA</p></article>
+          <article class="mini-card"><h3>Total Clips</h3><p>TBA</p></article>
+          <article class="mini-card"><h3>Mean Duration</h3><p>TBA seconds</p></article>
+          <article class="mini-card"><h3>Modalities</h3><p>RGB + Wrist/Leg/Chest IMU</p></article>
+          <article class="mini-card"><h3>Labels</h3><p>Action + Severity</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="visualizations">
+      <div class="container">
+        <h2>Sample Visualizations</h2>
+        <div class="grid gallery-grid">
+          <figure class="figure-card gallery-item">
+            <img src="assets/img/frames.png" alt="Synchronized frames placeholder" />
+            <figcaption>Synchronized video frames</figcaption>
+          </figure>
+          <figure class="figure-card gallery-item">
+            <img src="assets/img/imu_signal.png" alt="Wrist IMU placeholder" />
+            <figcaption>Wrist IMU signals</figcaption>
+          </figure>
+          <figure class="figure-card gallery-item">
+            <img src="assets/img/imu_signal.png" alt="Leg IMU placeholder" />
+            <figcaption>Leg IMU signals</figcaption>
+          </figure>
+          <figure class="figure-card gallery-item">
+            <img src="assets/img/imu_signal.png" alt="Chest IMU placeholder" />
+            <figcaption>Chest IMU signals</figcaption>
+          </figure>
+          <figure class="figure-card gallery-item">
+            <img src="assets/img/teaser.png" alt="Severity examples placeholder" />
+            <figcaption>Impairment severity examples</figcaption>
+          </figure>
+          <figure class="figure-card gallery-item">
+            <img src="assets/img/pipeline.png" alt="Pipeline overview placeholder" />
+            <figcaption>Pipeline overview</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft reveal" id="baselines">
+      <div class="container">
+        <h2>Baseline Models</h2>
+        <div class="grid three-up">
+          <article class="card">
+            <h3>Video-based</h3>
+            <ul>
+              <li>VideoMAE</li>
+              <li>Video Swin Transformer</li>
+              <li>V-JEPA</li>
+              <li>TimeSformer</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>IMU-based</h3>
+            <ul>
+              <li>DeepConvLSTM</li>
+              <li>Temporal CNN</li>
+              <li>Transformer-based IMU encoders</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Multimodal Fusion</h3>
+            <ul>
+              <li>Late fusion</li>
+              <li>Shared latent embeddings</li>
+              <li>Projection + normalization + MLP classifier</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="results">
+      <div class="container">
+        <h2>Results</h2>
+        <p>Placeholder benchmark tables summarize modality comparison, unimodal versus multimodal performance, and task-specific outcomes.</p>
+
+        <div class="grid two-up">
+          <article class="card table-card">
+            <h3>Action Recognition (Accuracy %)</h3>
+            <table>
+              <thead>
+                <tr><th>Model</th><th>Video</th><th>IMU</th><th>Fusion</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Baseline A</td><td>TBA</td><td>TBA</td><td>TBA</td></tr>
+                <tr><td>Baseline B</td><td>TBA</td><td>TBA</td><td>TBA</td></tr>
+                <tr><td>Baseline C</td><td>TBA</td><td>TBA</td><td>TBA</td></tr>
+              </tbody>
+            </table>
+          </article>
+
+          <article class="card table-card">
+            <h3>Severity Estimation (Macro-F1 / MAE)</h3>
+            <table>
+              <thead>
+                <tr><th>Model</th><th>Macro-F1</th><th>MAE</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Video-only</td><td>TBA</td><td>TBA</td></tr>
+                <tr><td>IMU-only</td><td>TBA</td><td>TBA</td></tr>
+                <tr><td>Multimodal</td><td>TBA</td><td>TBA</td></tr>
+              </tbody>
+            </table>
+          </article>
+        </div>
+
+        <p class="note highlight">Current trend placeholder: multimodal fusion consistently improves results, while egocentric video alone provides strong predictive cues.</p>
+      </div>
+    </section>
+
+    <section class="section section-soft reveal" id="download">
+      <div class="container">
+        <h2>Download</h2>
+        <div class="button-row">
+          <a class="btn btn-primary" href="#" aria-label="Zenodo placeholder link">Zenodo Release</a>
+          <a class="btn btn-secondary" href="#" aria-label="GitHub repo placeholder link">GitHub Repository</a>
+          <a class="btn btn-secondary" href="#" aria-label="HuggingFace placeholder link">HuggingFace Dataset</a>
+        </div>
+
+        <div class="grid three-up">
+          <article class="mini-card"><h3>Dataset Size</h3><p>TBA</p></article>
+          <article class="mini-card"><h3>Modalities</h3><p>Egocentric RGB + Multi-sensor IMU</p></article>
+          <article class="mini-card"><h3>License</h3><p>See LICENSE file in release package</p></article>
+        </div>
+        <p class="note">Please cite EgoInertia-MI when using the dataset in publications.</p>
+      </div>
+    </section>
+
+    <section class="section reveal" id="citation">
+      <div class="container">
+        <h2>Citation</h2>
+        <article class="card code-card">
+          <pre class="bibtex-block"><code>@inproceedings{egoinertia_mi_2026,
+  title     = {EgoInertia-MI: A Multimodal Egocentric Video and Inertial Dataset for Motor Impairment Analysis},
+  author    = {Author List},
+  booktitle = {Conference Name},
+  year      = {2026},
+  url       = {https://placeholder.url}
+}</code></pre>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section-soft reveal" id="ethics">
+      <div class="container narrow">
+        <h2>License and Ethics</h2>
+        <p>
+          The benchmark includes volunteer participants performing simulated impairment behaviors under approved study
+          protocols. The design follows privacy-aware egocentric acquisition principles and is intended for research
+          benchmarking, not direct clinical diagnosis.
+        </p>
+        <p>
+          EgoInertia-MI is a non-clinical benchmark and should be interpreted within that limitation. Ethical use,
+          attribution, and adherence to the dataset license are required.
+        </p>
+      </div>
+    </section>
+
+    <section class="section reveal" id="acknowledgements">
+      <div class="container narrow">
+        <h2>Acknowledgements</h2>
+        <p>
+          We thank all participants, annotators, and collaborators who contributed to the data collection and benchmark
+          development process.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>EgoInertia-MI Benchmark</p>
+      <a href="#top" aria-label="Back to top">Back to top</a>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
