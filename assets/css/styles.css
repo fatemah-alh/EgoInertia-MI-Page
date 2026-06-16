@@ -476,15 +476,6 @@ figcaption {
   overflow: hidden;
 }
 
-.task-card::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 88px;
-  height: 88px;
-  background: radial-gradient(circle at 30% 30%, rgba(255, 20, 147, 0.24), rgba(255, 20, 147, 0));
-}
 
 .task-id {
   margin: 0 0 0.5rem;
