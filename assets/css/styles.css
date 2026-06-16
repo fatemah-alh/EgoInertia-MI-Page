@@ -345,6 +345,17 @@ li {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.modalities-row {
+  display: flex;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.modality-card {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
 .card,
 .mini-card,
 .figure-card,
@@ -686,6 +697,10 @@ tbody tr:hover {
 
   .gallery-item {
     grid-column: span 12;
+  }
+
+  .modalities-row {
+    flex-direction: column;
   }
 
   .video-carousel {
