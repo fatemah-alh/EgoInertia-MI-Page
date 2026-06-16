@@ -18,8 +18,8 @@
       <a class="brand" href="#top">EgoInertia-MI</a>
       <nav class="nav" aria-label="Primary navigation">
         <a href="#abstract">Abstract</a>
-        <a href="#modalities">Modalities</a>
-        <a href="#organization">Organization</a>
+        <a href="#modalities">Dataset Description</a>
+        <a href="#organization">Structure</a>
         <a href="#tasks">Tasks</a>
         <a href="#results">Results</a>
         <a href="#download">Download</a>
@@ -80,38 +80,55 @@
     </section>
 
 
-    <section class="section reveal" id="modalities">
-      <div class="container">
-        <h2>Dataset Modalities</h2>
-        <div class="modalities-row">
-          <article class="card modality-card">
-            <h3>Egocentric Video</h3>
-            <ul>
-              <li>GoPro 12 Hero Chest Wearable first-person RGB camera</li>
-              <li>19 Activities</li>
-              <li> Impairment Severity levels: Natural, Mild, Sever. </li>
-            </ul>
-            <figure class="figure-card compact">
-              <img src="assets/img/activities.svg" alt="Sample egocentric frames placeholder" />
-             
-            </figure>
-          </article>
-          <article class="card modality-card">
-            <h3>IMU Signals</h3>
-            <ul>
-              <li>Synchronized wearable inertial streams</li>
-              <li>Tri-axial acceleration + gyroscope</li>
-              <li>3 position: Wrist, Leg and Chest</li>
-            
-            </ul>
-            <figure class="figure-card compact">
-              <img src="assets/img/imu-signal.svg" alt="IMU signal visualization placeholder" />
-             
-            </figure>
-          </article>
-        </div>
-      </div>
-    </section>
+   <section class="section reveal" id="modalities">
+  <div class="container">
+    <h2>Dataset Description</h2>
+
+    <div class="modalities-row">
+
+      <article class="card modality-card">
+        <h3>Daily Activities and Clinical Tasks</h3>
+
+        <ul>
+          <li> 19 activities spanning motor assessments and activities of daily living</li>
+          <li>Upper-limb, gait, stair navigation, and object manipulation tasks</li>
+          <li>Performed under Natural, Mild, and Severe impairment conditions</li>
+          <li>Designed to capture diverse manifestations of motor impairment</li>
+        </ul>
+
+        <figure class="figure-card compact">
+          <img src="assets/img/activities.svg"
+               alt="Overview of activities included in EgoInertia-MI" />
+          <figcaption>
+            Representative activities spanning upper-limb tasks, gait assessments,
+            stair navigation, and activities of daily living.
+          </figcaption>
+        </figure>
+      </article>
+
+      <article class="card modality-card">
+        <h3>Multimodal Motion Capture</h3>
+       
+        <ul>
+          <li> Chest-mounted GoPro HERO12 recording at 30 FPS</li>
+          <li>Wrist, leg, and chest IMUs sampled at 25.5 Hz</li>
+          <li>Synchronized video and inertial measurements</li>
+          <li>Captures both visual appearance and movement dynamics</li>
+        </ul>
+
+        <figure class="figure-card compact">
+          <img src="assets/img/imu-signal.svg"
+               alt="Example IMU signals across impairment levels" />
+          <figcaption>
+            Example wrist acceleration signals showing increasing motor impairment
+            severity from Natural to Severe.
+          </figcaption>
+        </figure>
+      </article>
+
+    </div>
+  </div>
+</section>
 
     <section class="section reveal" id="visualizations">
       <div class="container">
@@ -144,7 +161,7 @@
 
     <section class="section section-soft reveal" id="organization">
       <div class="container">
-        <h2>Dataset Organization</h2>
+        <h2>Dataset Structure</h2>
         <p>Each video clip has a corresponding aligned IMU file with the same identifier.</p>
 
         <div class="grid two-up code-grid">
