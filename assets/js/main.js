@@ -37,3 +37,38 @@ const navObserver = new IntersectionObserver(
 );
 
 sections.forEach((section) => navObserver.observe(section));
+
+const carousel = document.querySelector(".video-carousel");
+
+if (carousel) {
+  const slides = [...carousel.querySelectorAll("[data-carousel-slide]")];
+  const dots = [...carousel.querySelectorAll("[data-carousel-dot]")];
+  const prevButton = carousel.querySelector("[data-carousel-prev]");
+  const nextButton = carousel.querySelector("[data-carousel-next]");
+  let activeIndex = 0;
+
+  const showSlide = (index) => {
+    activeIndex = (index + slides.length) % slides.length;
+
+    slides.forEach((slide, slideIndex) => {
+      const isActive = slideIndex === activeIndex;
+      slide.classList.toggle("active", isActive);
+
+      const video = slide.querySelector("video");
+      if (video && !isActive) {
+        video.pause();
+      }
+    });
+
+    dots.forEach((dot, dotIndex) => {
+      dot.classList.toggle("active", dotIndex === activeIndex);
+    });
+  };
+
+  prevButton?.addEventListener("click", () => showSlide(activeIndex - 1));
+  nextButton?.addEventListener("click", () => showSlide(activeIndex + 1));
+  dots.forEach((dot, dotIndex) => {
+    dot.addEventListener("click", () => showSlide(dotIndex));
+  });
+}
+
