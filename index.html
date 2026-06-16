@@ -55,7 +55,7 @@
         </div>
         <figure class="hero-figure figure-card">
           <img src="assets/img/teaser.png" alt="Teaser figure for EgoInertia-MI" />
-          <figcaption>Synchronized egocentric perception and wearable IMU benchmark pipeline.</figcaption>
+         
         </figure>
       </div>
     </section>
@@ -87,15 +87,13 @@
           <article class="card">
             <h3>Egocentric Video</h3>
             <ul>
-              <li>Wearable first-person RGB camera</li>
-              <li>Approximately 150 RGB frames per clip</li>
-              <li>MP4 / H.264 encoding</li>
-              <li>720p resolution (1280x720)</li>
-              <li>Temporally sampled for video transformers</li>
+              <li>GoPro 12 Hero Chest Wearable first-person RGB camera</li>
+              <li>19 Activities</li>
+              <li> Impairment Severity levels: Natural, Mild, Sever. </li>
             </ul>
             <figure class="figure-card compact">
               <img src="assets/img/frames.png" alt="Sample egocentric frames placeholder" />
-              <figcaption>Sample egocentric frames placeholder.</figcaption>
+             
             </figure>
           </article>
           <article class="card">
@@ -103,15 +101,43 @@
             <ul>
               <li>Synchronized wearable inertial streams</li>
               <li>Tri-axial acceleration + gyroscope</li>
-              <li>Wrist sensor</li>
-              <li>Leg sensor</li>
-              <li>Chest sensor, aligned with video clips</li>
+              <li>3 position: Wrist, Leg and Chest</li>
+            
             </ul>
             <figure class="figure-card compact">
-              <img src="assets/img/imu_signal.png" alt="IMU signal visualization placeholder" />
-              <figcaption>IMU signal visualization placeholder.</figcaption>
+              <img src="assets/img/imu-signal.svg" alt="IMU signal visualization placeholder" />
+             
             </figure>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="visualizations">
+      <div class="container">
+        <h2>Sample Visualizations</h2>
+        <div class="video-carousel" aria-label="Sample visualization video carousel">
+          <button class="carousel-btn carousel-btn-prev" type="button" aria-label="Previous video" data-carousel-prev>&lsaquo;</button>
+          <div class="carousel-track">
+            <figure class="figure-card video-slide active" data-carousel-slide>
+              <video src="assets/video/Eating_severity_0_1_2.mp4" controls preload="metadata"></video>
+              <figcaption>Eating severity examples</figcaption>
+            </figure>
+            <figure class="figure-card video-slide" data-carousel-slide>
+              <video src="assets/video/FingerTapping_severity_0_1_2.mp4" controls preload="metadata"></video>
+              <figcaption>Finger tapping severity examples</figcaption>
+            </figure>
+            <figure class="figure-card video-slide" data-carousel-slide>
+              <video src="assets/video/TUG_severity_0_1_2.mp4" controls preload="metadata"></video>
+              <figcaption>TUG severity examples</figcaption>
+            </figure>
+          </div>
+          <button class="carousel-btn carousel-btn-next" type="button" aria-label="Next video" data-carousel-next>&rsaquo;</button>
+          <div class="carousel-dots" aria-label="Choose video">
+            <button class="active" type="button" aria-label="Show Eating video" data-carousel-dot></button>
+            <button type="button" aria-label="Show Finger tapping video" data-carousel-dot></button>
+            <button type="button" aria-label="Show TUG video" data-carousel-dot></button>
+          </div>
         </div>
       </div>
     </section>
@@ -241,34 +267,7 @@ c_gyro_x, c_gyro_y, c_gyro_z</code></pre>
       </div>
     </section>
 
-    <section class="section reveal" id="visualizations">
-      <div class="container">
-        <h2>Sample Visualizations</h2>
-        <div class="video-carousel" aria-label="Sample visualization video carousel">
-          <button class="carousel-btn carousel-btn-prev" type="button" aria-label="Previous video" data-carousel-prev>&lsaquo;</button>
-          <div class="carousel-track">
-            <figure class="figure-card video-slide active" data-carousel-slide>
-              <video src="assets/video/Eating_severity_0_1_2.mp4" controls preload="metadata"></video>
-              <figcaption>Eating severity examples</figcaption>
-            </figure>
-            <figure class="figure-card video-slide" data-carousel-slide>
-              <video src="assets/video/FingerTapping_severity_0_1_2.mp4" controls preload="metadata"></video>
-              <figcaption>Finger tapping severity examples</figcaption>
-            </figure>
-            <figure class="figure-card video-slide" data-carousel-slide>
-              <video src="assets/video/TUG_severity_0_1_2.mp4" controls preload="metadata"></video>
-              <figcaption>TUG severity examples</figcaption>
-            </figure>
-          </div>
-          <button class="carousel-btn carousel-btn-next" type="button" aria-label="Next video" data-carousel-next>&rsaquo;</button>
-          <div class="carousel-dots" aria-label="Choose video">
-            <button class="active" type="button" aria-label="Show Eating video" data-carousel-dot></button>
-            <button type="button" aria-label="Show Finger tapping video" data-carousel-dot></button>
-            <button type="button" aria-label="Show TUG video" data-carousel-dot></button>
-          </div>
-        </div>
-      </div>
-    </section>
+    
 
     <section class="section section-soft reveal" id="baselines">
       <div class="container">

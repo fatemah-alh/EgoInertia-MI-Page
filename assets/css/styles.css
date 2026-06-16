@@ -194,24 +194,24 @@ li {
   content: "";
   position: absolute;
   border-radius: 999px;
-  filter: blur(14px);
+  filter: blur(36px);
   z-index: 0;
 }
 
 .hero::before {
-  width: clamp(220px, 30vw, 360px);
+  width: clamp(320px, 42vw, 560px);
   aspect-ratio: 1;
-  right: -80px;
-  top: 20px;
-  background: radial-gradient(circle at 40% 40%, rgba(255, 20, 147, 0.26), rgba(255, 255, 255, 0));
+  right: -160px;
+  top: -80px;
+  background: radial-gradient(circle at 45% 45%, rgba(255, 20, 147, 0.16) 0%, rgba(255, 20, 147, 0.09) 38%, rgba(255, 255, 255, 0) 76%);
 }
 
 .hero::after {
-  width: clamp(260px, 34vw, 440px);
+  width: clamp(340px, 46vw, 620px);
   aspect-ratio: 1;
-  left: -130px;
-  bottom: -80px;
-  background: radial-gradient(circle at 50% 50%, rgba(30, 144, 255, 0.2), rgba(255, 255, 255, 0));
+  left: -190px;
+  bottom: -150px;
+  background: radial-gradient(circle at 52% 52%, rgba(30, 144, 255, 0.14) 0%, rgba(30, 144, 255, 0.08) 40%, rgba(255, 255, 255, 0) 78%);
 }
 
 .hero-grid {
