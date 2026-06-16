@@ -217,10 +217,11 @@ li {
 .hero-grid {
   position: relative;
   z-index: 1;
-  display: grid;
-  gap: 1.25rem;
-  align-items: stretch;
-  grid-template-columns: 1.1fr 1fr;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.55rem;
+  text-align: center;
 }
 
 .kicker {
@@ -245,9 +246,52 @@ li {
   margin-bottom: 1.2rem;
 }
 
+.hero-copy {
+  max-width: 920px;
+}
+
+.author-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.45rem 1rem;
+  margin: 0.95rem auto 0.65rem;
+  font-family: "Sora", sans-serif;
+  font-size: clamp(0.95rem, 2vw, 1.08rem);
+  font-weight: 600;
+}
+
+.author-list a,
+.affiliation-list a {
+  color: #143f80;
+  text-decoration: none;
+}
+
+.author-list a:hover,
+.author-list a:focus-visible,
+.affiliation-list a:hover,
+.affiliation-list a:focus-visible {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.affiliation-list {
+  max-width: 820px;
+  margin: 0 auto 1.25rem;
+}
+
+.affiliation-list p {
+  margin: 0.18rem 0;
+  color: var(--text-muted);
+  font-family: "Sora", sans-serif;
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
 .button-row {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 0.7rem;
 }
 
@@ -372,8 +416,15 @@ li {
   background: #fff;
 }
 
+.hero-figure {
+  width: min(980px, 100%);
+}
+
 .hero-figure img {
   min-height: 330px;
+  object-fit: contain;
+  opacity: 1;
+  background: #fff;
 }
 
 figcaption {
