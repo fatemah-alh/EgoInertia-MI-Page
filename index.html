@@ -99,10 +99,7 @@
         <figure class="figure-card compact">
           <img src="assets/img/activities.svg"
                alt="Overview of activities included in EgoInertia-MI" />
-          <figcaption>
-            Representative activities spanning upper-limb tasks, gait assessments,
-            stair navigation, and activities of daily living.
-          </figcaption>
+          
         </figure>
       </article>
 
@@ -119,10 +116,7 @@
         <figure class="figure-card compact">
           <img src="assets/img/imu-signal.svg"
                alt="Example IMU signals across impairment levels" />
-          <figcaption>
-            Example wrist acceleration signals showing increasing motor impairment
-            severity from Natural to Severe.
-          </figcaption>
+         
         </figure>
       </article>
 
@@ -162,7 +156,13 @@
     <section class="section section-soft reveal" id="organization">
       <div class="container">
         <h2>Dataset Structure</h2>
-        <p>Each video clip has a corresponding aligned IMU file with the same identifier.</p>
+        <p>The dataset is divided into two modalities: **Video** and **IMU**. 
+          Data are organized hierarchically by participant, session, and recording. 
+          Each participant typically completed 2–4 recording sessions, 
+          with each recording capturing a single activity performed at a specific 
+          impairment severity level. Corresponding IMU and video recordings are 
+          synchronized and share the same organizational structure.
+</p>
 
         <div class="grid two-up code-grid">
           <article class="card code-card">
