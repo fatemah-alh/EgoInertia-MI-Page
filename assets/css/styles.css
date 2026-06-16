@@ -347,8 +347,8 @@ li {
 
 .modalities-row {
   display: flex;
+  flex-direction: column;
   gap: 1rem;
-  align-items: stretch;
 }
 
 .modality-card {
@@ -699,10 +699,6 @@ tbody tr:hover {
 
   .gallery-item {
     grid-column: span 12;
-  }
-
-  .modalities-row {
-    flex-direction: column;
   }
 
   .video-carousel {
