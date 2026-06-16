@@ -21,7 +21,7 @@
         <a href="#modalities">Dataset Description</a>
         <a href="#organization">Structure</a>
         <a href="#tasks">Tasks</a>
-        <a href="#results">Results</a>
+        <a href="#baselines">Baselines</a>
         <a href="#download">Download</a>
         <a href="#citation">Citation</a>
       </nav>
@@ -278,18 +278,23 @@ c_gyro_x, c_gyro_y, c_gyro_z</code></pre>
       <div class="container">
         <h2>Benchmark Tasks</h2>
         <div class="grid two-up">
-          <article class="card task-card">
+           <article class="card task-card">
             <p class="task-id">Task 1</p>
-            <h3>Action Recognition</h3>
-            <p>Predict the performed activity from video-only, IMU-only, and multimodal fusion inputs.</p>
+            <h3>Motor Impairment Severity Estimation</h3>
+            <p>The primary task is movement impairment severity estimation from IMU, video, or multimodal data. Severity is formulated as a three-class classification problem (levels 0–2), requiring models to understand both motion patterns and their activity context.
+             </p>
           </article>
+
           <article class="card task-card">
             <p class="task-id">Task 2</p>
-            <h3>Motor Impairment Severity Estimation</h3>
-            <p>Estimate impairment severity levels from multimodal movement dynamics.</p>
+            <h3>Action Recognition</h3>
+            <p>The benchmark also includes action recognition across 19 daily living and clinically relevant activities. Actions are performed under varying impairment levels, requiring models to learn robust representations that generalize across diverse movement patterns and execution styles.
+</p>
           </article>
+         
         </div>
-        <p class="note">Protocols include unimodal baselines, multimodal fusion baselines, and standardized evaluation settings.</p>
+        <p class="note">**Evaluation Protocol.** We adopt a 5-fold subject-disjoint cross-validation protocol with 12 training, 2 validation, and 3 test subjects per fold. Performance is reported using the Macro F1-score.
+</p>
       </div>
     </section>
 
@@ -307,73 +312,10 @@ c_gyro_x, c_gyro_y, c_gyro_z</code></pre>
 
     <section class="section section-soft reveal" id="baselines">
       <div class="container">
-        <h2>Baseline Models</h2>
-        <div class="grid three-up">
-          <article class="card">
-            <h3>Video-based</h3>
-            <ul>
-              <li>VideoMAE</li>
-              <li>Video Swin Transformer</li>
-              <li>V-JEPA</li>
-              <li>TimeSformer</li>
-            </ul>
-          </article>
-          <article class="card">
-            <h3>IMU-based</h3>
-            <ul>
-              <li>DeepConvLSTM</li>
-              <li>Temporal CNN</li>
-              <li>Transformer-based IMU encoders</li>
-            </ul>
-          </article>
-          <article class="card">
-            <h3>Multimodal Fusion</h3>
-            <ul>
-              <li>Late fusion</li>
-              <li>Shared latent embeddings</li>
-              <li>Projection + normalization + MLP classifier</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section reveal" id="results">
-      <div class="container">
-        <h2>Results</h2>
-        <p>Placeholder benchmark tables summarize modality comparison, unimodal versus multimodal performance, and task-specific outcomes.</p>
-
-        <div class="grid two-up">
-          <article class="card table-card">
-            <h3>Action Recognition (Accuracy %)</h3>
-            <table>
-              <thead>
-                <tr><th>Model</th><th>Video</th><th>IMU</th><th>Fusion</th></tr>
-              </thead>
-              <tbody>
-                <tr><td>Baseline A</td><td>TBA</td><td>TBA</td><td>TBA</td></tr>
-                <tr><td>Baseline B</td><td>TBA</td><td>TBA</td><td>TBA</td></tr>
-                <tr><td>Baseline C</td><td>TBA</td><td>TBA</td><td>TBA</td></tr>
-              </tbody>
-            </table>
-          </article>
-
-          <article class="card table-card">
-            <h3>Severity Estimation (Macro-F1 / MAE)</h3>
-            <table>
-              <thead>
-                <tr><th>Model</th><th>Macro-F1</th><th>MAE</th></tr>
-              </thead>
-              <tbody>
-                <tr><td>Video-only</td><td>TBA</td><td>TBA</td></tr>
-                <tr><td>IMU-only</td><td>TBA</td><td>TBA</td></tr>
-                <tr><td>Multimodal</td><td>TBA</td><td>TBA</td></tr>
-              </tbody>
-            </table>
-          </article>
-        </div>
-
-        <p class="note highlight">Current trend placeholder: multimodal fusion consistently improves results, while egocentric video alone provides strong predictive cues.</p>
+        <h2>Baseline Resluts</h2>
+        <figure class="figure-card wide">
+          <img src="assets/img/resluts.png" alt="Baseline results placeholder" />
+        </figure>
       </div>
     </section>
 
@@ -401,7 +343,7 @@ c_gyro_x, c_gyro_y, c_gyro_z</code></pre>
         <article class="card code-card">
           <pre class="bibtex-block"><code>@inproceedings{egoinertia_mi_2026,
   title     = {EgoInertia-MI: A Multimodal Egocentric Video and Inertial Dataset for Motor Impairment Analysis},
-  author    = {Author List},
+  author    = { },
   booktitle = {Conference Name},
   year      = {2026},
   url       = {https://placeholder.url}
