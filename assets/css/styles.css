@@ -417,11 +417,13 @@ li {
   min-height: 240px;
 }
 
-#statistics .figure-card::before {
+#statistics .figure-card::before,
+#modalities .figure-card::before {
   display: none;
 }
 
-#statistics .figure-card img {
+#statistics .figure-card img,
+#modalities .figure-card img {
   opacity: 1;
   object-fit: contain;
   background: #fff;
