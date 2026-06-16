@@ -64,33 +64,21 @@
       <div class="container narrow">
         <h2>Overview</h2>
         <p>
-          EgoInertia-MI provides synchronized egocentric RGB video and wearable IMU streams for movement analysis and
-          motor impairment severity estimation. The benchmark is designed for multimodal learning under controlled,
-          reproducible protocols and includes standardized train/validation/test partitions.
-        </p>
-        <p>
-          The dataset emphasizes simulated impairment levels, wearable sensing, privacy-aware first-person vision, and
-          practical multimodal evaluation. It does not replace clinical datasets collected from real patients; instead,
-          it offers a scalable and accessible benchmark for studying multimodal movement analysis in controlled settings.
+         Motor impairments, including tremor, bradykinesia, gait abnormalities, and postural instability, are common across many neurological and movement-related conditions. 
+         Conventional clinical assessments are often intermittent and may fail to capture subtle temporal variations in motor behavior. While wearable IMUs and third-person video have shown promise for objective motor assessment, third-person recordings raise privacy concerns and require constrained acquisition setups. 
+         In contrast, egocentric vision provides a more naturalistic and privacy-aware alternative.
+         </p>
+         <p>
+         In this work, we introduce EgoInertia-MI, a multimodal benchmark dataset combining synchronized egocentric video and wearable IMU signals for motor impairment analysis. 
+         The dataset contains 19 upper- and lower-body activities performed by healthy volunteers simulating varying levels of motor impairment severity levels: no impairment, mild impairment, and severe impairment. 
+         We establish two benchmark tasks: action recognition and motor impairment severity estimation, and evaluate multiple unimodal and multimodal baselines. 
+         Experimental results show that egocentric video provides strong cues for motor impairment assessment, while multimodal fusion achieves the best overall performance, reaching 0.78 Macro-F1 for severity estimation and 0.93 Macro-F1 for action recognition. 
+         
+         These findings highlight the potential of combining egocentric vision and wearable sensing for ecologically valid and privacy-aware motor assessment.
         </p>
       </div>
     </section>
 
-    <section class="section section-soft reveal" id="motivation">
-      <div class="container narrow">
-        <h2>Motivation</h2>
-        <p>
-          Traditional clinical assessments are often intermittent and subjective. Existing vision-based approaches rely
-          heavily on third-person cameras in controlled environments, frequently involving full-body or facial recordings.
-          These conditions can introduce privacy concerns, reduce ecological validity, and complicate real-world deployment.
-        </p>
-        <p>
-          Egocentric sensing enables naturally privacy-aware observations while capturing self-motion dynamics that are
-          directly relevant to motor analysis. EgoInertia-MI investigates whether egocentric video encodes meaningful cues
-          for impairment analysis and whether fusion with synchronized IMU signals improves performance.
-        </p>
-      </div>
-    </section>
 
     <section class="section reveal" id="modalities">
       <div class="container">
